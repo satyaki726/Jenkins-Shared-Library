@@ -9,13 +9,13 @@ def call(String repoUrl,String body,String subject,String tomail) {
                }
            }
            
-        post{
-            success{
-            emailext body: "${body}", 
-            subject: "${subject}",
-            to: "${tomail}"
-            }
-        }
+           stage("Email Notification") {
+               steps {
+                emailext body: "${body}", 
+                subject: "${subject}",
+                to: "${tomail}"
+               }
+           }
        }
    }
 }
