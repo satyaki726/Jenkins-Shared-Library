@@ -8,14 +8,9 @@ def call(String repoUrl){
                        url: "${repoUrl}"
                }
            }
-           stage('version'){
-            steps{
-                bat 'pwsh --version'
-            }
-           }
            stage('hello'){
             steps{
-                bat 'pwsh hello.ps1'
+                bat 'pwbat hello.ps1'
             }
            }
         } 
