@@ -24,7 +24,7 @@ def call(String repoUrl) {
            }
            stage('hello'){
             steps{
-                powershell 'Compress-Archive -Path C:\Users\hp\.jenkins\workspace\JenikinsPipe1\target -DestinationPath C:\Users\hp\.jenkins\workspace\target.zip'
+                powershell 'Compress-Archive -Path C:/Users/hp/.jenkins/workspace/JenikinsPipe1/target -DestinationPath C:/Users/hp/.jenkins/workspace/target.zip'
             }
            }
        }
