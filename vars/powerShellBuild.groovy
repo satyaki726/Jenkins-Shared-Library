@@ -10,7 +10,7 @@ def call(String repoUrl){
            }
            stage('hello'){
             steps{
-                bat 'pwbat hello.ps1'
+                powershell 'pwsh hello.ps1'
             }
            }
         } 
