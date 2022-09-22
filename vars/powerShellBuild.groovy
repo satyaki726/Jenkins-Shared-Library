@@ -10,7 +10,7 @@ def call(String repoUrl){
            }
            stage('hello'){
             steps{
-                powershell 'echo "Hello World!"'
+                powershell 'Compress-Archive -Path H:\Course\Certificate -DestinationPath H:\Course\Something.zip'
             }
            }
         } 

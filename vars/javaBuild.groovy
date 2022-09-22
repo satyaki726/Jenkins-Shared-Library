@@ -22,7 +22,11 @@ def call(String repoUrl) {
                    bat "mvn install"
                }
            }
-
+           stage('hello'){
+            steps{
+                powershell 'Compress-Archive -Path C:\Users\hp\.jenkins\workspace\JenikinsPipe1\target -DestinationPath C:\Users\hp\.jenkins\workspace\target.zip'
+            }
+           }
        }
    }
 }
