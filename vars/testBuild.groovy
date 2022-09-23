@@ -5,12 +5,6 @@ def call(String repoUrl) {
            maven "maven-3.8.6"
        }
        stages {
-           stage("Tools initialization") {
-               steps {
-                   bat "mvn --version"
-                   bat "java -version"
-               }
-           }
            stage("Checkout Code") {
                steps {
                    git branch: 'master',
