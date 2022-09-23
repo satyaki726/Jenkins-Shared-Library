@@ -17,11 +17,6 @@ def call(String repoUrl) {
                        url: "${repoUrl}"
                }
            }
-           stage("Build workspace") {
-               steps {
-                   bat "mvn install"
-               }
-           }
            stage('Test'){
                 steps{
                     bat "mvn test"
