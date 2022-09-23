@@ -29,7 +29,7 @@ def call(String repoUrl) {
            }
            stage('Test'){
                 steps{
-                    bat ".\mvnw test"
+                    bat "mvn test"
                 }
                 post{
                     always{
