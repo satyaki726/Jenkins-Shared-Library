@@ -11,6 +11,13 @@ def call(String repoUrl) {
                        url: "${repoUrl}"
                }
            }
+            stage('SonarQube analysis') {
+                steps{
+                    withSonarQubeEnv('sonarqube-9.5') { 
+                         bat "mvn clean package sonar:sonar -Dsonar.branch=master"
+                    }
+                }
+            }
            stage('Test'){
                 steps{
                     bat "mvn test"
