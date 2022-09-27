@@ -24,7 +24,7 @@ def call(String repoUrl) {
            }
             stage('SonarQube analysis') {
                 steps{
-                    withSonarQubeEnv('sonar') { 
+                    withSonarQubeEnv('sonarqube-9.5') { 
                          bat "mvn sonar:sonar"
                     }
                 }
