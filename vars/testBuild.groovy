@@ -11,12 +11,13 @@ def call(String repoUrl) {
                        url: "${repoUrl}"
                }
            }
-          stage('SonarQube Analysis') {
-             def mvn = tool 'maven-3.8.6';
-             withSonarQubeEnv() {
-                 bat "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=junit-app"
-            }
-          }
+           stage('SonarQube analysis') {
+                steps{
+                    withSonarQubeEnv('sonarqube-9.5') { 
+                         bat "mvn sonar:sonar"
+                    }
+                }
+            } 
            stage('Test'){
                 steps{
                     bat "mvn test"
