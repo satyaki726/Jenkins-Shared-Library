@@ -14,7 +14,7 @@ def call(String repoUrl) {
             stage('SonarQube analysis') {
                 steps{
                     withSonarQubeEnv('sonarqube-9.5') { 
-                         bat "mvn clean package sonar:sonar"
+                         bat "mvn clean package sonar:sonar -Dsonar.login=sonar-token"
                     }
                 }
             }
