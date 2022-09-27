@@ -12,7 +12,7 @@ def call(String repoUrl) {
                }
            }
           stage('SonarQube Analysis') {
-             def mvn = tool 'Default Maven';
+             def mvn = tool 'maven-3.8.6';
              withSonarQubeEnv() {
                  bat "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=junit-app"
             }
