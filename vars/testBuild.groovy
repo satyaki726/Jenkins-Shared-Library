@@ -15,7 +15,8 @@ def call(String repoUrl) {
              def mvn = tool 'Default Maven';
              withSonarQubeEnv() {
                  bat "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=junit-app"
-           }
+            }
+          }
            stage('Test'){
                 steps{
                     bat "mvn test"
