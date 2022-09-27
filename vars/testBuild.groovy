@@ -11,6 +11,11 @@ def call(String repoUrl) {
                        url: "${repoUrl}"
                }
            }
+           stage("Build workspace") {
+               steps {
+                   bat "mvn install"
+               }
+           }
            stage('SonarQube analysis') {
                 steps{
                     withSonarQubeEnv('sonarqube-9.5') { 
