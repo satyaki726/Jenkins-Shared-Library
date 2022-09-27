@@ -22,21 +22,13 @@ def call(String repoUrl) {
                    bat "mvn install"
                }
            }
-           stage('zip'){
+            stage('SonarQube analysis') {
                 steps{
-                    powershell 'Compress-Archive -Path C:/Users/hp/.jenkins/workspace/JenikinsPipe1/target -DestinationPath C:/Users/hp/.jenkins/workspace/target.zip'
-                }
-           }
-           stage('Test'){
-                steps{
-                    bat "mvn test"
-                }
-                post{
-                    always{
-                        junit '**/target/surefire-reports/TEST-*.xml'
+                    withSonarQubeEnv('sonarqube-9.5') { 
+                         bat "mvn sonar:sonar"
                     }
                 }
-           }
+            } 
        }
    }
 }
